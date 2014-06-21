@@ -50,7 +50,8 @@ def copyFolderToFolder(srcDir, dstDir):
 		dstFilePath = os.path.join(dstDir, thisFile)
 		
 		if (os.path.isfile(srcFilePath) & (not os.path.isfile(dstFilePath))):
-			#the file exists in the source path but not the destination path
+			#The file exists in the source path but not the destination path.
+			#Copy the file from the source path to the destination path.
 			print("Copying " + srcFilePath)
 			shutil.copyfile(srcFilePath, dstFilePath)
 		elif os.path.isdir(srcFilePath):
@@ -71,18 +72,19 @@ def copyDuplicateFiles(dir1, dir2):
 
 	for thisFile in dir1Files:
 		if thisFile[:2] == "~$":
-			#thisFile is a Windows backup file
+			#thisFile is a Windows backup file and is to be ignored
 			continue
 			
 		if thisFile[-1] == '~':
-			#thisFile is a *IX backup file
+			#thisFile is a *IX backup file and is to be ignored
 			continue
 		
 		dir1FilePath = os.path.join(dir1, thisFile)
 		dir2FilePath = os.path.join(dir2, thisFile)
 		
 		if (os.path.isfile(dir1FilePath) & os.path.isfile(dir2FilePath)):
-			#the file exists in both the source path and the destination path
+			#The file exists in both the source path and the destination path.
+			#The newer version of the file will copy over the old version of the file.
 			dir1ModifiedTime = os.path.getmtime(dir1FilePath)
 			dir2ModifiedTime = os.path.getmtime(dir2FilePath)
 			print("Duplicating " + dir1FilePath)
@@ -99,7 +101,7 @@ def copyDuplicateFiles(dir1, dir2):
 #files and subfolders as each other.  If both directories already have the same
 #file, the most recently updated file will be maintained and overwrite the older
 #version.
-#main
+#main.
 getPaths()
 print("***Copying from first directory to second directory...")
 copyFolderToFolder(pathFirst, pathSecond)
