@@ -3,7 +3,7 @@ FileManager
 
 Contains scripts to perform file backup and folder syncronization
 
-FileManager.py is a script that allows a user to syncronize files between 2 directories.  
+SyncFiles.py is a script that allows a user to syncronize files between 2 directories.  
 
 First a user is asked to select two directories to syncronize.
 
